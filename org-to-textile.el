@@ -10,16 +10,16 @@
 (defun org-to-textile-buffer ()
   (interactive)
   (set-process-filter
-     (let ((process-connection-type nil))
-       (start-process "org-to-textile" nil org-to-textile-command "--file" (buffer-file-name (current-buffer))))
-     'org-to-textile-process-filter))
+   (let ((process-connection-type nil))
+     (start-process "org-to-textile" nil org-to-textile-command "--file" (buffer-file-name (current-buffer))))
+   'org-to-textile-process-filter))
 
 (defun org-to-textile-region ()
   (interactive)
   (set-process-filter
-       (let ((process-connection-type nil))
-         (start-process "org-to-textile" nil org-to-textile-command (buffer-substring (region-beginning) (region-end))))
-       'org-to-textile-process-filter))
+   (let ((process-connection-type nil))
+     (start-process "org-to-textile" nil org-to-textile-command (buffer-substring (region-beginning) (region-end))))
+   'org-to-textile-process-filter))
 
 (defun org-to-textile ()
   (interactive)
