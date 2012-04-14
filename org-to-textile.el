@@ -7,18 +7,10 @@
   (with-current-buffer org-to-textile-buffer
     (insert string)))
 
-(defun org-to-textile-buffer ()
-  (interactive)
+(defun org-to-textile-region (start end)
   (set-process-filter
    (let ((process-connection-type nil))
-     (start-process "org-to-textile" nil org-to-textile-command "--file" (buffer-file-name (current-buffer))))
-   'org-to-textile-process-filter))
-
-(defun org-to-textile-region ()
-  (interactive)
-  (set-process-filter
-   (let ((process-connection-type nil))
-     (start-process "org-to-textile" nil org-to-textile-command (buffer-substring (region-beginning) (region-end))))
+     (start-process "org-to-textile" nil org-to-textile-command (buffer-substring start end)))
    'org-to-textile-process-filter))
 
 (defun org-to-textile ()
@@ -27,6 +19,6 @@
       (get-buffer-create org-to-textile-buffer))
   (with-current-buffer org-to-textile-buffer (erase-buffer))
   (if (and transient-mark-mode mark-active)
-      (org-to-textile-region)
-    (org-to-textile-buffer))
+      (org-to-textile-region (region-beginning) (region-end))
+    (org-to-textile-region (point-min) (point-max)))
   (switch-to-buffer-other-window org-to-textile-buffer))
