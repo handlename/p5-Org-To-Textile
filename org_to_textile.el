@@ -1,5 +1,5 @@
 (defvar org-to-textile-buffer "*org-to-textile*")
-(defvar org-to-textile-command "org2textile")
+(defvar org-to-textile-command "org2textile.pl")
 
 (defun org-to-textile-process-filter (process string)
   (if (not (buffer-live-p (get-buffer org-to-textile-buffer)))

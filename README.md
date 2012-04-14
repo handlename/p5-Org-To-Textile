@@ -87,9 +87,18 @@ emacsのorg-modeの書式からtextile形式に変換するモジュールです
 
 このプロジェクトのトップディレクトリで次のようにすることで同様の結果を得られます。
 
-    $ perl -Ilib org_to_textile.pl --file=sample.org
+    $ perl -Ilib org2textile.pl --file=sample.org
+
+## emacsと連携する
+
+まず、org2textile.plをパスの通った場所においてください。
+
+次に、`org_to_textile.e`l を .emacs で load するか、内容をそのまま貼り付けると `org-to-textile` というコマンドが有効になります。
+
+org-mode で書かれたファイルを開いている時に `M-x org-to-textile` を実行すると、新しいバッファに Textile 変換したものを表示します。
+
+選択されたリージョンがあった場合、リージョンの範囲内のテキストのみを対象にして変換を行います。
 
 ## 注意！
 
-org-modeのすべての書式に対応しているわけではありません。
-対応している書式は先の「変換例」に書かれているものだけです。
+org-modeのすべての書式に対応しているわけではありません。対応している書式は先の「変換例」に書かれているものだけです。
