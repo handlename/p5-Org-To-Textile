@@ -5,6 +5,8 @@ use warnings;
 use base 'Exporter';
 our @EXPORT = qw/org_to_textile/;
 
+our $VERSION = '0.01';
+
 sub org_to_textile {
     my %params = @_;
 
