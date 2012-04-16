@@ -136,7 +136,7 @@ sub _convert_block {
 
     my $raw_content = $elem->raw_content;
     $raw_content =~ /^( +)/;
-    my $indent = $1;
+    my $indent = $1 || '';
     $raw_content =~ s/^$indent//;
     $raw_content =~ s/\n$indent/\n/;
 
