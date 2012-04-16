@@ -22,3 +22,5 @@
       (org-to-textile-region (region-beginning) (region-end))
     (org-to-textile-region (point-min) (point-max)))
   (switch-to-buffer-other-window org-to-textile-buffer))
+
+(provide 'org-to-textile)
