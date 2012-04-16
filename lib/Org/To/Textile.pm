@@ -138,7 +138,7 @@ sub _convert_block {
     $raw_content =~ /^( +)/;
     my $indent = $1 || '';
     $raw_content =~ s/^$indent//;
-    $raw_content =~ s/\n$indent/\n/;
+    $raw_content =~ s/\n$indent/\n/g;
 
     $res .= _set_indent('<pre>', $level);
     $res .= $raw_content;
