@@ -91,9 +91,12 @@ emacsのorg-modeの書式からtextile形式に変換するモジュールです
 
 ## emacsと連携する
 
-まず、org2textile.plをパスの通った場所においてください。
+まず、org2textile.plをパスの通った場所に置いてください。
 
-次に、`org-to-textile.el` を .emacs で load するか、内容をそのまま貼り付けると `org-to-textile` というコマンドが有効になります。
+次に、`org-to-textile.el` を .emacs で require すると `org-to-textile` というコマンドが有効になります。
+
+    (add-to-list 'load-path "/path/to/p5-Org-To-Textile")
+    (require 'org-to-textile)
 
 org-mode で書かれたファイルを開いている時に `M-x org-to-textile` を実行すると、新しいバッファに Textile 変換したものを表示します。
 
